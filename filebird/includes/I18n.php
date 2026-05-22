@@ -28,8 +28,7 @@ class I18n {
 		}
 		unload_textdomain( 'filebird' );
 		load_textdomain( 'filebird', WP_LANG_DIR . '/plugins/filebird-' . $locale . '.mo' );
-		load_plugin_textdomain( 'filebird', false, NJFB_PLUGIN_PATH . '/i18n/languages/' );
-	}
+		load_plugin_textdomain( 'filebird', false, dirname( plugin_basename( NJFB_PLUGIN_FILE ) ) . '/i18n/languages/' );	}
 
 	public static function getTranslation() {
 		$translation = array(
@@ -297,6 +296,7 @@ class I18n {
 			'pro'                               => __( 'PRO', 'filebird' ),
 			'no_folders_export'                 => __( 'There are no folders to export.', 'filebird' ),
 			'searching_folder_api'              => __( 'Switch from searching using JavaScript to using an API', 'filebird' ),
+			'enable_search_api'                 => __( 'Enable searching for folder names using API', 'filebird' ),
 			'folders_for_media_library'         => __( 'Folders for media library', 'filebird' ),
 			'folders_for_post_types'            => __( 'Folders for post types', 'filebird' ),
 			'select_post_types_scan'            => __( 'Select post types to scan', 'filebird' ),

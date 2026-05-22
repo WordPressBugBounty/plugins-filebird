@@ -4,7 +4,7 @@ Donate link: https://ninjateam.org/wordpress-media-library-folders/
 Tags: wordpress media library folders, organization, media, media folders, file manager
 Requires at least: 3.0
 Tested up to: 7.0
-Stable tag: 6.5.3
+Stable tag: 6.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -207,6 +207,11 @@ Happy Organizing! 😍
 8. FileBird gallery block settings
 
 == Changelog ==
+
+= May 22, 2026 – Version 6.5.4 =
+- Fixed: UI issues in WordPress 7.0
+- Fixed: Translation strings in several languages
+- Improved: UI elements in the Tools screen
 
 = May 11, 2026 - Version 6.5.3 =
 - Added: Folders for post/page (1 level folder supported) in FileBird free version
