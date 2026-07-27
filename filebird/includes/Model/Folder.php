@@ -249,8 +249,8 @@ class Folder {
 	public static function assignFolder( int $folderId, array $attachmentIds, string $lang ) {
         global $wpdb;
 
-		$ids = array_map( 'intval', $attachmentIds );
-        $ids = implode( ',', $ids );
+		$attachmentIds = array_map( 'intval', $attachmentIds );
+        $ids = implode( ',', $attachmentIds );
 
         // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $cleanQuery = $wpdb->prepare(
@@ -614,13 +614,61 @@ class Folder {
 
 		$folders       = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}fbv", ARRAY_A );
 		$attachmentIds = $wpdb->get_results( "SELECT folder_id, GROUP_CONCAT(attachment_id SEPARATOR '|') as attachment_ids FROM {$wpdb->prefix}fbv_attachment_folder GROUP BY (folder_id)", OBJECT_K );
-
 		foreach ( $folders as $key => $folder ) {
-			$folders[ $key ]['name'] = '"' . Helpers::sanitize_for_excel( $folder['name'] ) . '"';
-			if ( isset( $folders[ $key ] ) && isset( $attachmentIds[ $folder['id'] ] ) ) {
-				$folders[ $key ]['attachment_ids'] = $attachmentIds[ $folder['id'] ]->attachment_ids ? $attachmentIds[ $folder['id'] ]->attachment_ids : '';
+			$folder['name'] = '"' . Helpers::sanitize_for_excel( $folder['name'] ) . '"';
+			if ( isset( $folder ) && isset( $attachmentIds[ $folder['id'] ] ) ) {
+				$folder['attachment_ids'] = $attachmentIds[ $folder['id'] ]->attachment_ids ? $attachmentIds[ $folder['id'] ]->attachment_ids : '';
 			} else {
-				$folders[ $key ]['attachment_ids'] = '';
+				$folder['attachment_ids'] = '';
+			}
+			$folder['post_type'] = 'attachment';
+			$folders[$key] = $folder;
+		}
+
+		//get all terms of taxonomies
+		$enabledPostType = get_option( 'fbv_enabled_posttype', '' );
+		$enabledPostType = explode( ',', $enabledPostType );
+		$enabledPostType = array_filter( $enabledPostType );
+		foreach ( $enabledPostType as $postType ) {
+			$terms = get_terms( array(
+				'taxonomy'   => 'fbv_pt_tax_' . $postType,
+				'hide_empty' => false,
+				'meta_key'   => 'fbv_tax_order',
+				'orderby'    => 'meta_value_num',
+				'order'      => 'ASC',
+			) );
+			if( is_wp_error( $terms ) ) {
+				continue;
+			}
+			foreach ( $terms as $term ) {
+				$folder = array();
+				if ( is_array( $term ) ) {
+					$term = (object) $term;
+				}
+				$posts = get_posts( array(
+					'fields' => 'ids',
+					'post_type' => $postType,
+					'numberposts' => -1,
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'fbv_pt_tax_' . $postType,
+							'field' => 'term_id',
+							'terms' => $term->term_id,
+						),
+					),
+				) );
+				$attachment_ids = is_array( $posts ) ? implode( '|', $posts ) : '';
+
+				$folder['id'] = $term->term_id;
+				$folder['name'] = '"' . Helpers::sanitize_for_excel( $term->name ) . '"';
+				$folder['parent'] = $term->parent;
+				$folder['type'] = 0;
+				$folder['ord'] = get_term_meta( $term->term_id, 'fbv_tax_order', true );
+				$folder['created_by'] = get_term_meta( $term->term_id, 'fbv_author', true );
+				$folder['attachment_ids'] = $attachment_ids;
+				$folder['post_type'] = $postType;
+				
+				$folders[] = $folder;
 			}
 		}
 		return $folders;

@@ -56,7 +56,6 @@ class I18n {
 			'save_changes'                      => __( 'Save Changes', 'filebird' ),
 			'folder'                            => __( 'Folder', 'filebird' ),
 			'folder_name_placeholder'           => __( 'Folder name...', 'filebird' ),
-			'folders'                           => __( 'Folders', 'filebird' ),
 			'enter_folder_name_placeholder'     => __( 'Enter folder name...', 'filebird' ),
 			'are_you_sure_delete'               => __( 'Are you sure you want to delete', 'filebird' ),
 			'are_you_sure'                      => __( 'Are you sure?', 'filebird' ),
