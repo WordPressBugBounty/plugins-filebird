@@ -3,8 +3,8 @@ Contributors: ninjateam
 Donate link: https://ninjateam.org/wordpress-media-library-folders/ 
 Tags: wordpress media library folders, organization, media, media folders, file manager
 Requires at least: 3.0
-Tested up to: 7.0
-Stable tag: 6.5.7
+Tested up to: 7.1
+Stable tag: 6.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Organize thousands of WordPress media files in folders / categories with ease.
 
 **The #1 WordPress plugin to organize your media library with folders.**
 
-✨**NEW:** Organize WordPress pages and posts too, with the same drag-and-drop folders you already use for media.
+✨ **NEW:** Organize WordPress pages and posts too, with the same drag-and-drop folders you already use for media.
 
 [**TEST DRIVE**](https://media-folder.ninjateam.org/create/) | [**GO PRO (Lifetime License)**](https://ninjateam.org/wordpress-media-library-folders/) 💎
 
@@ -22,7 +22,8 @@ FileBird transforms your WordPress media library with intuitive folder organizat
 
 The free version allows you to create **unlimited main folders** and **subfolders**.
 
-📌 [FileBird Cloud Extension](https://ninjateam.org/downloads/filebird-cloud-integration-dropbox-and-google-drive/?utm_source=wp-org&utm_medium=filebird-addons) | [Compare FileBird Free vs Pro](https://ninjateam.gitbook.io/filebird/compare-filebird-free-and-pro)
+📌 [FileBird Cloud Extension](https://ninjateam.org/downloads/filebird-cloud-integration-dropbox-and-google-drive/?utm_source=wp-org&utm_medium=filebird-addons) | [Document Library Extension](https://ninjateam.org/wordpress-document-library/?utm_source=wp-org&utm_medium=filebird-addons)
+[Compare FileBird Free vs Pro](https://ninjateam.gitbook.io/filebird/compare-filebird-free-and-pro/)
 
 [youtube https://www.youtube.com/watch?v=NjeEbqmMVwU]
 
@@ -213,6 +214,14 @@ Happy Organizing! 😍
 8. FileBird gallery block settings
 
 == Changelog ==
+
+= Aug 22, 2026 - Version 6.5.8 =
+- Added: FileBird Gallery module for Divi Builder (Pro version)
+- Added: Support moving media and posts to folders on touch devices
+- Updated: License handling (only for Pro version sold on NinjaTeam official website)
+- Fixed: Sort files by name issue
+- Fixed: Drag-and-drop handle for the WordPress 7.1 list table
+- Fixed: Issue with uploading image to selected folder (browser's built-in file uploaded)
 
 = Jul 27, 2026 - Version 6.5.7 =
 - New: Native license activation mode (for purchases made directly on https://ninjateam.org)
