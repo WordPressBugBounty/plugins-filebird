@@ -76,9 +76,14 @@ class Settings {
 			if( ! is_array( $enabledPostType ) ) {
 				$enabledPostType     = explode( ',', $enabledPostType );
 			}
-			$enabledPostType     = array_filter($enabledPostType, function($post_type) {
-				return $post_type === 'post' || $post_type === 'page';
-			});
+			$enabledPostType     = array_values(
+				array_filter(
+					$enabledPostType,
+					function( $post_type ) {
+						return $post_type === 'post' || $post_type === 'page';
+					}
+				)
+			);
 			$wpmlActiveLanguages = apply_filters( 'wpml_active_languages', null, array( 'skip_missing' => 0 ) );
 
 			wp_localize_script(

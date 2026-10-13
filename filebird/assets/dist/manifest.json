@@ -1,19 +1,19 @@
 {
-  "_index-d04c75f0.js": {
-    "file": "index-d04c75f0.js"
+  "_index-21e04b1b.js": {
+    "file": "index-21e04b1b.js"
   },
   "admin.tsx": {
-    "file": "admin.tsx-5a32e836.js",
+    "file": "admin.tsx-5f63a41d.js",
     "imports": [
-      "_index-d04c75f0.js"
+      "_index-21e04b1b.js"
     ],
     "isEntry": true,
     "src": "admin.tsx"
   },
   "main.tsx": {
-    "file": "main.tsx-c160adb7.js",
+    "file": "main.tsx-90fdc97c.js",
     "imports": [
-      "_index-d04c75f0.js"
+      "_index-21e04b1b.js"
     ],
     "isEntry": true,
     "src": "main.tsx"

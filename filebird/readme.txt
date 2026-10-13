@@ -3,8 +3,9 @@ Contributors: ninjateam
 Donate link: https://ninjateam.org/wordpress-media-library-folders/ 
 Tags: wordpress media library folders, organization, media, media folders, file manager
 Requires at least: 3.0
+Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 6.5.8
+Stable tag: 6.5.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,9 +24,10 @@ FileBird transforms your WordPress media library with intuitive folder organizat
 The free version allows you to create **unlimited main folders** and **subfolders**.
 
 📌 [FileBird Cloud Extension](https://ninjateam.org/downloads/filebird-cloud-integration-dropbox-and-google-drive/?utm_source=wp-org&utm_medium=filebird-addons) | [Document Library Extension](https://ninjateam.org/wordpress-document-library/?utm_source=wp-org&utm_medium=filebird-addons)
-[Compare FileBird Free vs Pro](https://ninjateam.gitbook.io/filebird/compare-filebird-free-and-pro/)
 
 [youtube https://www.youtube.com/watch?v=NjeEbqmMVwU]
+
+[Compare FileBird Free vs Pro](https://ninjateam.gitbook.io/filebird/compare-filebird-free-and-pro/)
 
 ###⚡️ FEATURES
 
@@ -214,6 +216,13 @@ Happy Organizing! 😍
 8. FileBird gallery block settings
 
 == Changelog ==
+
+= Oct 13, 2026 - Version 6.5.9 =
+- Added: Backup management
+- Improved: Accessibility of the folder tree and settings page
+- Improved: Security (thanks to George Theodoridis)
+- Fixed: Conflict with [WP Duplicate Page](https://wordpress.org/plugins/wp-duplicate-page/)
+- Fixed: Folder download producing a corrupted zip on folders with many files (Pro version)
 
 = Aug 22, 2026 - Version 6.5.8 =
 - Added: FileBird Gallery module for Divi Builder (Pro version)
